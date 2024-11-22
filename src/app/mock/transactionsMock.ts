@@ -1,0 +1,121 @@
+import { Transaction } from "../types";
+
+const transactions = [
+  { id: "1", date: "2024-11-01", description: "Payment A", amount: 200 },
+  { id: "2", date: "2024-11-02", description: "Refund B", amount: -50 },
+  { id: "3", date: "2024-11-03", description: "Subscription C", amount: 99.99 },
+  { id: "4", date: "2024-11-04", description: "Payment D", amount: 150.5 },
+  { id: "5", date: "2024-11-05", description: "Purchase E", amount: 300.75 },
+  { id: "6", date: "2024-11-05", description: "Purchase F", amount: 99.75 },
+  { id: "7", date: "2024-11-10", description: "Purchase F", amount: 3031.75 },
+  { id: "8", date: "2024-11-10", description: "Purchase F", amount: 12212.75 },
+  { id: "9", date: "2024-11-06", description: "Payment G", amount: 75.25 },
+  {
+    id: "10",
+    date: "2024-11-07",
+    description: "Subscription H",
+    amount: 15.99,
+  },
+  { id: "11", date: "2024-11-08", description: "Refund I", amount: -20 },
+  { id: "12", date: "2024-11-09", description: "Purchase J", amount: 420 },
+  { id: "13", date: "2024-11-10", description: "Payment K", amount: 60.75 },
+  {
+    id: "14",
+    date: "2024-11-11",
+    description: "Subscription L",
+    amount: 99.99,
+  },
+  { id: "15", date: "2024-11-12", description: "Refund M", amount: -45.5 },
+  { id: "16", date: "2024-11-13", description: "Purchase N", amount: 520.75 },
+  { id: "17", date: "2024-11-14", description: "Payment O", amount: 80.25 },
+  { id: "18", date: "2024-11-15", description: "Refund P", amount: -25 },
+  {
+    id: "19",
+    date: "2024-11-16",
+    description: "Subscription Q",
+    amount: 49.99,
+  },
+  { id: "20", date: "2024-11-17", description: "Payment R", amount: 150.75 },
+  { id: "21", date: "2024-11-18", description: "Purchase S", amount: 300.99 },
+  { id: "22", date: "2024-11-19", description: "Refund T", amount: -50.5 },
+  { id: "23", date: "2024-11-20", description: "Payment U", amount: 200.45 },
+  {
+    id: "24",
+    date: "2024-11-21",
+    description: "Subscription V",
+    amount: 29.99,
+  },
+  { id: "25", date: "2024-11-22", description: "Purchase W", amount: 450.75 },
+  { id: "26", date: "2024-11-23", description: "Payment X", amount: 99.5 },
+  { id: "27", date: "2024-11-24", description: "Refund Y", amount: -10.75 },
+  {
+    id: "28",
+    date: "2024-11-25",
+    description: "Subscription Z",
+    amount: 79.99,
+  },
+  { id: "29", date: "2024-11-26", description: "Purchase AA", amount: 110.5 },
+  { id: "30", date: "2024-11-27", description: "Payment AB", amount: 65.25 },
+  { id: "31", date: "2024-11-28", description: "Refund AC", amount: -35.99 },
+  { id: "32", date: "2024-11-29", description: "Purchase AD", amount: 250.45 },
+  { id: "33", date: "2024-11-30", description: "Payment AE", amount: 125.75 },
+  {
+    id: "34",
+    date: "2024-12-01",
+    description: "Subscription AF",
+    amount: 59.99,
+  },
+  { id: "35", date: "2024-12-02", description: "Refund AG", amount: -80 },
+  { id: "36", date: "2024-12-03", description: "Purchase AH", amount: 350.75 },
+  { id: "37", date: "2024-12-04", description: "Payment AI", amount: 75.5 },
+  { id: "38", date: "2024-12-05", description: "Refund AJ", amount: -30.25 },
+  {
+    id: "39",
+    date: "2024-12-06",
+    description: "Subscription AK",
+    amount: 29.99,
+  },
+  { id: "40", date: "2024-12-07", description: "Purchase AL", amount: 220.45 },
+  { id: "41", date: "2024-12-08", description: "Payment AM", amount: 95.75 },
+  { id: "42", date: "2024-12-09", description: "Refund AN", amount: -12.5 },
+  { id: "43", date: "2024-12-10", description: "Purchase AO", amount: 275.5 },
+  {
+    id: "44",
+    date: "2024-12-11",
+    description: "Subscription AP",
+    amount: 19.99,
+  },
+  { id: "45", date: "2024-12-12", description: "Payment AQ", amount: 135.75 },
+  { id: "46", date: "2024-12-13", description: "Refund AR", amount: -15.75 },
+  { id: "47", date: "2024-12-14", description: "Purchase AS", amount: 405.99 },
+  { id: "48", date: "2024-12-15", description: "Payment AT", amount: 89.5 },
+  { id: "49", date: "2024-12-16", description: "Refund AU", amount: -25.25 },
+  {
+    id: "50",
+    date: "2024-12-17",
+    description: "Subscription AV",
+    amount: 49.99,
+  },
+  { id: "51", date: "2024-12-18", description: "Payment AW", amount: 155.45 },
+  { id: "52", date: "2024-12-19", description: "Purchase AX", amount: 225.75 },
+  { id: "53", date: "2024-12-20", description: "Refund AY", amount: -5.99 },
+  { id: "54", date: "2024-12-21", description: "Payment AZ", amount: 70.25 },
+  { id: "55", date: "2024-12-22", description: "Purchase BA", amount: 500.75 },
+  { id: "56", date: "2024-12-23", description: "Refund BB", amount: -95.99 },
+  {
+    id: "57",
+    date: "2024-12-24",
+    description: "Subscription BC",
+    amount: 39.99,
+  },
+  { id: "58", date: "2024-12-25", description: "Payment BD", amount: 105.45 },
+];
+
+export const fetchTransactions = async (): Promise<Transaction[]> => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (Math.random() > 0.1) resolve(transactions);
+      else reject(new Error("Failed to fetch transactions."));
+    }, 1000);
+  });
+};
